@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="initial-scale=1.0"> 
+  <link rel="stylesheet" href="style.css"> 
+  <title>DoctorAI - Organ Donation</title> 
+ <style type="text/css" id="dcoder_stylesheet">/* Add this content to your "style.css" file */
+
+body {
+    background-color: skyblue;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: white;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}</style></head> 
+ <body> <!-- Heading --> 
+  <h1>DoctorAI</h1> <!-- Motivational Paragraph --> 
+  <p>Organ donation can save lives. Your decision to donate can provide someone with a second chance. Be a hero!</p> <!-- Options to Donate Organs --> 
+  <div class="container"> 
+   <h1>Donor Details</h1> 
+   <form action="process_details.php" method="POST"> <label for="name">Full Name:</label> 
+    <input type="text" id="name" name="name" required> <label for="fatherName">Father's Name:</label> 
+    <input type="text" id="fatherName" name="fatherName" required> <label for="address">Address:</label> 
+    <input type="text" id="address" name="address" required> <label for="village">Village:</label> 
+    <input type="text" id="village" name="village" required> <label for="postOffice">Post Office:</label> 
+    <input type="text" id="postOffice" name="postOffice" required> <label for="policeStation">Police Station:</label> 
+    <input type="text" id="policeStation" name="policeStation" required> <label for="district">District:</label> 
+    <input type="text" id="district" name="district" required> <label for="state">State:</label> 
+    <input type="text" id="state" name="state" required> <label for="pin">PIN:</label> 
+    <input type="text" id="pin" name="pin" required> <label for="contact">Contact Number:</label> 
+    <input type="tel" id="contact" name="contact" required> <label for="bloodGroup">Blood Group:</label> <select id="bloodGroup" name="bloodGroup" required> <option value="A+">A+</option> <option value="A-">A-</option> <option value="B+">B+</option> <option value="B-">B-</option> <option value="O+">O+</option> <option value="O-">O-</option> <option value="AB+">AB+</option> <option value="AB-">AB-</option> </select> <label for="bloodType">Blood Type:</label> <select id="bloodType" name="bloodType" required> <option value="Whole Blood">Whole Blood</option> <option value="Plasma">Plasma</option> <option value="Platelets">Platelets</option> <option value="Red Blood Cells">Red Blood Cells</option> </select> <button type="submit">Submit</button> 
+   </form> 
+  </div> 
+  <h2>Choose Organs to Donate</h2> 
+  <p>Select the organs you'd like to donate:</p> 
+  <form class="container"> 
+   <input type="checkbox" id="heart" name="organs" value="heart"> <label for="heart">Heart</label> 
+   <br> 
+   <input type="checkbox" id="liver" name="organs" value="liver"> <label for="liver">Liver</label> 
+   <br> 
+   <input type="checkbox" id="kidney" name="organs" value="kidney"> <label for="kidney">Kidney</label> 
+   <br> 
+   <input type="checkbox" id="eye" name="organs" value="eye"> <label for="eye">Eye</label> 
+   <br> 
+   <input type="checkbox" id="whole-body" name="organs" value="whole-body"> <label for="whole-body">Whole Body</label> 
+   <br> <!-- You can add more organs here --> <button type="submit">Submit</button> 
+  </form> <!-- Footer --> 
+  <footer> <!-- Your footer content goes here --> 
+  </footer> <!-- Blood Drop Image --> 
+  <img src="blood-drop.png" alt="Blood Drop Image" class="blood-drop"> 
+ 
+</body></html>

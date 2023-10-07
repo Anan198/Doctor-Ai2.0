@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        header {
+            background-color: transparent;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .header-box {
+            background-color: #006400;
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 5px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Style the profile section */
+        .profile {
+            text-align: center;
+        }
+
+        .profile-box {
+            background-color: #e0f2e9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-info {
+            text-align: left;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Style the buttons */
+        .profile-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        /* Style the message and availability boxes */
+        #message-box,
+        #availability-box {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        /* Style the day schedule in the availability box */
+        .day-schedule {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-box">
+            <h1>Our Doctors</h1>
+        </div>
+    </header>
+    <br>
+    <br>
+    <main>
+        <section class="profile">
+            <div class="profile-box">
+                <div class="profile-header">
+                    <img src="./doctor profile.jpg">
+                    <div class="profile-info">
+                        <h2>XYZ clinic</h2>
+                        <p>prof. Maruf halder </p>
+                        <p>contact no=825-003-1038</p>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button id="book-button">Book Now</button>
+                    <button id="info-button">Information</button>
+                </div>
+            </div>
+        </section>
+        <div id="message-box"></div>
+        <div id="availability-box"></div>
+    </main>
+    <script>
+        const bookButton = document.getElementById('book-button');
+        const infoButton = document.getElementById('info-button');
+        const messageBox = document.getElementById('message-box');
+        const availabilityBox = document.getElementById('availability-box');
+
+        bookButton.addEventListener('click', function () {
+            // Open an HTML file when the button is clicked
+            window.open('booking of clinic.html', '_blank'); // Replace 'your_file.html' with your HTML file's path
+        });
+
+        infoButton.addEventListener('click', function () {
+            if (availabilityBox.style.display === 'none' || availabilityBox.style.display === '') {
+                availabilityBox.style.display = 'block';
+                messageBox.style.display = 'none';
+                availabilityBox.innerHTML = `
+                <p>Clinic Name: XYZ Clinic</p>
+                <p>Owner: Dr. Maruf Halder</p>
+                <p>Phone Number: 8250031038</p>
+                <p>Address: 123 Clinic Street, jalpaigury City</p>
+                `;
+            } else {
+                availabilityBox.style.display = 'none';
+            }
+        });
+    </script>
+
+
+</body></html>

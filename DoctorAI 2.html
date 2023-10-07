@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>DoctorAI</title> 
+  <link rel="stylesheet" href="styles.css"> 
+ <style type="text/css" id="dcoder_stylesheet">:root{ 
+     --pink:#e84393; 
+ } 
+body {
+	baackground-color: white;
+	margin: 0;
+}
+.watermark {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity:0.7;
+	z-index: -1;
+} 
+ .content {
+	text-align: center;
+	background-color: white;
+}
+ *{ 
+     margin:0; padding:0; 
+     box-sizing: border-box; 
+     font-family: Verdana, Geneva, Tahoma, sans-serif; 
+     outline: none; border:none; 
+     text-decoration: none; 
+     text-transform: capitalize; 
+     transition: .2s linear; 
+ } 
+  .container {
+	position:relative;
+	width:300px;
+}
+img{
+	width:70%;
+	height:70%
+}
+.text {
+	position:absolute;
+	top:50%;
+	right:0%;
+	transform: translate(-50%, -50%);
+	color: blue;
+	font-size:30px;
+	font-weight: bold;
+	text-align: center;
+	baackground: rgba(0,0,0,0.5);
+	padding: 10px;
+	border-radius:5px;
+}
+  
+ html{ 
+     font-size: 62.5%; 
+     scroll-behavior: smooth; 
+     scroll-padding-top: 6rem; 
+     overflow-x: hidden; 
+ } 
+  
+ section{ 
+     padding:2rem 9%; 
+ } 
+  
+ .heading{ 
+     text-align: center; 
+     font-size: 4rem; 
+     color:#333; 
+     padding:1rem; 
+     margin:2rem 0; 
+     background:rgba(255, 51, 153,.05); 
+ } 
+  
+ .heading span{ 
+     color:var(--pink); 
+ } 
+  
+ .btn{ 
+     display: inline-block; 
+     margin-top: 1rem; 
+     border-radius: 5rem; 
+     background:#333; 
+     color:#fff; 
+     padding:.9rem 3.5rem; 
+     cursor: pointer; 
+     font-size: 1.7rem; 
+ } 
+  
+ .btn:hover{ 
+     background:var(--pink); 
+ } 
+header{ 
+     position: fixed; 
+     top:0; left:0; right:0; 
+     background:#fff; 
+     padding:2rem 9%; 
+     display: flex; 
+     align-items: center; 
+     justify-content: space-between; 
+     z-index: 1000; 
+     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); 
+ } 
+  
+ header .logo{ 
+     font-size: 3rem; 
+     color:#333; 
+     font-weight: bolder; 
+ } 
+  
+ header .logo span{ 
+     color:var(--pink); 
+ } 
+  
+ header .navbar a{ 
+     font-size: 2rem; 
+     padding:0 1.5rem; 
+     color:#666; 
+ } 
+  
+ header .navbar a:hover{ 
+     color:var(--pink); 
+ } 
+  
+ header .icons a{ 
+     font-size: 2.5rem; 
+     color:#333; 
+     margin-left: 1.5rem; 
+ } 
+  
+ header .icons a:hover{ 
+     color:var(--pink); 
+ } 
+  
+ header #toggler{ 
+     display: none; 
+ } 
+  
+ header .fa-bars{ 
+     font-size: 3rem; 
+     color:#333; 
+     border-radius: .5rem; 
+     padding:.5rem 1.5rem; 
+     cursor: pointer; 
+     border:.1rem solid rgba(0,0,0,.3); 
+     display: none; 
+ } 
+  
+.emergency-button {
+    font-size: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px #888888;
+}
+/* Styling for main content sections */
+main {
+    padding: 20px;
+}
+
+.message-box {
+    background-color: #e0f7fa; /* Light blue background color */
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle effect */
+}
+
+
+.message-box h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.complaint-box {
+    margin-top: 20px;
+}
+
+.complaint-box label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.complaint-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.complaint-box button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for the last "About Us" section */
+.about-us:last-child {
+    background-color: #0a192f; /* Dark blue background color */
+    color: #fff; /* White text color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle effect */
+}
+.icons-container{ 
+     background:#eee; 
+     display: flex; 
+     flex-wrap: wrap; 
+     gap:1.5rem; 
+     padding-top: 5rem; 
+     padding-bottom: 5rem; 
+ } 
+  
+ .icons-container .icons{ 
+     background:#fff; 
+     border:.1rem solid rgba(0,0,0,.1); 
+     padding:2rem; 
+     display: flex; 
+     align-items: center; 
+     flex:1 1 25rem; 
+ } 
+@media (max-width:991px){ 
+  
+     html{ 
+         font-size: 55%; 
+     } 
+  
+     header{ 
+         padding:2rem; 
+     } 
+  
+     section{ 
+         padding:2rem; 
+     } 
+  
+     .home{ 
+         background-position: left; 
+     } 
+  
+ } 
+  
+ @media (max-width:768px){ 
+  
+     header .fa-bars{ 
+         display: block; 
+     } 
+  
+     header .navbar{ 
+         position:absolute; 
+         top:100%; left:0; right:0; 
+         background:#eee; 
+         border-top: .1rem solid rgba(0,0,0,.1); 
+         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
+     } 
+  
+     header #toggler:checked ~ .navbar{ 
+         clip-path:polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
+     } 
+  
+     header .navbar a{ 
+         margin:1.5rem; 
+         padding:1.5rem; 
+         background:#fff; 
+         border:.1rem solid rgba(0,0,0,.1); 
+         display: block; 
+     } 
+  
+     .home .content h3{ 
+         font-size: 5rem; 
+     } 
+  
+     .home .content span{ 
+         font-size: 2.5rem; 
+     } 
+  
+     .icons-container .icons h3{ 
+         font-size: 2rem; 
+     } 
+  
+     .icons-container .icons span{ 
+         font-size: 1.7rem; 
+     } 
+  
+ } 
+  
+ @media (max-width:450px){ 
+  
+     html{ 
+         font-size: 50%; 
+     } 
+  
+     .heading{ 
+         font-size: 3rem; 
+     } 
+  
+ }
+
+
+/* Rest of your styles (complaint box, message boxes, etc.) */</style></head> 
+ <body>
+<div class="content"> 
+  <header> 
+   <input type="checkbox" name="" id="toggler"> <label for="toggler" class="fas fa-bars"></label> 
+   <nav class="navbar"> <a href="#home">home</a> <a href="#about">about</a> <a href="#products">products</a> <a href="#review">review</a> <a href="#contact">contact</a> 
+   </nav> 
+   <div class="icons"> <a href="#" class="fas fa-heart"></a> <a href="#" class="fas fa-shopping-cart"></a> <a href="#" class="fas fa-user"></a> 
+   </div> 
+  </header> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br> 
+  <div class="center" id="emergency-button"> <button class="emergency-button">EMERGENCY</button> 
+  </div><br>
+<div clas="container">  
+<img src="./robo doctor 2.jpg" alt="robo doctor 2">
+<div class="text">:DoctorAI</div>
+</div>
+<img class="watermark" src="./robo surgen.jpg" alt="robo surgen image"> 
+  <main> 
+   <section class="message-box"> 
+    <a href="medical diagnostic 2.html"><h2>Checking Up with Doctor</h2></a> 
+    <br> 
+    <p>Tell me your physical problems. Tell me what symptoms are appearing in your body. I will give you the best treatment. And finally give you a prescription with which you can take medicine.</p> 
+   </section> 
+   <section class="message-box"> 
+    <a href="contact to doctor.html"><h2>Contact to Your Nearby Doctor</h2></a>
+    <br> 
+    <p>Click here to contact your nearest doctor for a clinical test or direct consultation with a doctor.</p> 
+   </section> 
+   <section class="message-box"> 
+   <a href="./contact to doctor.html"><h2>Contact to a Surgen</h2></a>
+    <br> 
+    <p>If you need a surgery after treatment of physical disadvantages, then you can take appointment near your nearest expert surgement by showing your prescription.</p> 
+   </section> 
+   <section class="message-box"> 
+   <a href="./contact to clinic.html"><h2>Contact to your nearby clinic</h2></a>
+    <br> 
+    <p>check up your body , we provide your nearby best clinic with modern machine.any kind of check up like E.C.G , M.R.I ,C.T scan , blood test e.t.c</p> 
+   </section> 
+   <section class="message-box"> 
+    <a href="online medicine 2.html"><h2>Online Medicine Shopping</h2></a> 
+    <br> 
+    <p>After taking advice of the doctor, you can get online delivery at home.its may lower cost than a pharmecy.</p> 
+   </section> 
+   <section class="message-box"> 
+    <a href="./emergency contact.html"><h2>Emergency Contact</h2></a> 
+    <br> 
+    <p>Here I have given some emergency contacts like ambulance,police,hospital,blood bank,nursing home e.t.c. Moreover, our website has provided contact details of experts, if you contact them, they will solve your problem.</p> 
+   </section> 
+   <section class="message-box"> 
+    <a href="donate us.html"><h2>Donate Us</h2></a> 
+    <br> 
+    <p>This is a social service website. Donate to us so that we can provide proper treatment to everyone. We can treat for free or conduct medical camps, so please contact us who are doctors or nursing students along with donating.</p> 
+   </section> 
+   <section class="message-box"> 
+    <a href="./blood and organ donation.html"><h2>blood donation &amp; others</h2></a>
+    <br> 
+    <p>Donating blood is a great gift. You can donate your blood and organs so that someone else can appreciate this beautiful world through your organs. We will give you a card with which you will get help from us later. So be happy yourself and keep others happy. thank you</p> 
+   </section> 
+   <div class="complaint-box"> <label for="complaint">Any Complaint? Notice Us:</label> <textarea id="complaint" name="complaint" rows="4"></textarea> <button type="submit">Submit</button> 
+   </div> 
+   <canvas id="pieChartContainer"></canvas> 
+   <section class="about-us"> 
+    <h2>About Us</h2> 
+    <p>Hello world.we are the artificial doctor.sometimes some patients will die for the lack of actuall treatment.but we can reach at time to help you .here was a first aid treatment and also have an emergency button. any critical situation you press the button under 5 minutes we will track you and treat you the actual treatment. in INDIA money problem is the biggest problem .nit so india many countries arr suffering for this reason.we treat you all guys with low cost as well as free. so if you can donate us we will give free treatment.so make a beautiful environment.help us to growing up .</p> 
+   </section> 
+  </main> 
+</div>
+  <script src="script.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">// Disease data
+const diseaseData = [
+    { label: "Flu", percentage: 25 },
+    { label: "COVID-19", percentage: 30 },
+    { label: "Heart Disease", percentage: 20 },
+    { label: "Diabetes", percentage: 15 },
+    { label: "Others", percentage: 10 },
+];
+
+// Wait for the document to fully load before running the script
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the canvas element
+    const canvas = document.getElementById('pieChartContainer');
+    
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        
+        // Create the pie chart
+        const pieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: diseaseData.map(data => data.label),
+                datasets: [{
+                    data: diseaseData.map(data => data.percentage),
+                    backgroundColor: [
+                        'red', 'blue', 'green', 'orange', 'purple'
+                    ],
+                }]
+            },
+        });
+    }
+});</script></body></html>

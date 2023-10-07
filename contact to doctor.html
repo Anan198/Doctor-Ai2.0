@@ -1,0 +1,166 @@
+<!doctype html>
+<html> 
+ <head> 
+  <style>
+    body {
+	baackground-color: white;
+	margin: 0;
+}
+.watermark {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity:0.7;
+	z-index: -1;
+} 
+ .content {
+	text-align: center;
+	background-color: white;
+}
+header {
+    background-color: transparent; /* Change to your desired gray color */
+    text-align: center;
+    padding: 5px; /* Reducing padding slightly */
+}
+.header-box {
+    background-color: #006400; /* Change to deep green color */
+    display: inline-block;
+    padding: 3px 8px; /* Slightly reduce padding */
+    border-radius: 5px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Increase box shadow */
+    color: white;
+    font-weight: bold;
+}
+
+
+/* Style the profile section */
+.profile {
+    text-align: center;
+}
+
+.profile-box {
+    background-color: #e0f2e9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+.profile-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style the buttons */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style the message and availability boxes */
+#message-box, #availability-box {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+/* Style the day schedule in the availability box */
+.day-schedule {
+    margin-top: 10px;
+}
+
+    </style> 
+ </head> 
+ <body> 
+<img class="watermark" src="./robo surgen.jpg" alt="robo surgen image">
+<div class="content">
+  <header> 
+   <div class="header-box"> 
+    <h1>Our Doctors</h1> 
+   </div> 
+  </header>
+  <br>
+  <br> 
+  <main> 
+   <section class="profile"> 
+    <div class="profile-box"> 
+     <div class="profile-header"> 
+      <img src="./doctor profile.jpg"> 
+      <div class="profile-info"> 
+       <h2>Dr. Maruf Halder</h2> 
+       <p>M.B.B.S (AIMS)</p> 
+       <p>M.D Pediatrics (JIPMER)</p> 
+      </div> 
+     </div> 
+     <div class="profile-actions"> <button id="bio-button">Bio</button> <button id="availability-button">Availability</button> 
+     </div> 
+    </div> 
+   </section> 
+   <div id="message-box"></div> 
+   <div id="availability-box"></div> 
+  </main> 
+</div>
+  <script>
+    const bioButton = document.getElementById('bio-button');
+    const availabilityButton = document.getElementById('availability-button');
+    const messageBox = document.getElementById('message-box');
+    const availabilityBox = document.getElementById('availability-box');
+
+    bioButton.addEventListener('click', function () {
+        if (messageBox.style.display === 'none' || messageBox.style.display === '') {
+            messageBox.style.display = 'block';
+            availabilityBox.style.display = 'none';
+            messageBox.innerHTML = "Hello, I am Dr. Maruf Halder, ex-surgeon of AIMS.";
+        } else {
+            messageBox.style.display = 'none';
+        }
+    });
+
+    availabilityButton.addEventListener('click', function () {
+        if (availabilityBox.style.display === 'none' || availabilityBox.style.display === '') {
+            availabilityBox.style.display = 'block';
+            messageBox.style.display = 'none';
+            // You can dynamically populate the availability box with schedule information here.
+            // Example for a day:
+            availabilityBox.innerHTML = `
+                <div class="day-schedule">
+                    <p>Monday</p>
+                    <p>Location: Clinic XYZ</p>
+                    <p>Opening Time: 9:00 AM</p>
+                    <p>Closing Time: 5:00 PM</p>
+                    <button>Book Now</button>
+                </div>
+                <!-- Add similar sections for other days -->
+            `;
+        } else {
+            availabilityBox.style.display = 'none';
+        }
+    });
+</script> 
+ 
+<script type="text/javascript" id="dcoder_script">// JavaScript to handle button clicks</script></body></html>

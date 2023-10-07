@@ -1,0 +1,179 @@
+<!doctype html>
+<html> 
+ <head> 
+  <title>Medical Diagnostic</title> 
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+ <style type="text/css" id="dcoder_stylesheet">body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#search {
+    padding: 5px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.choices {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.choices button {
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.choices button:hover {
+    background-color: #1e6fbc;
+}
+
+.choices button.selected {
+    background-color: #e74c3c;
+}
+
+.choices button.selected:hover {
+    background-color: #c0392b;
+}
+
+#selected-symptoms {
+    margin: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#result-button {
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#result-button:hover {
+    background-color: #219f56;
+}
+
+#diagnosis-result {
+    margin: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #e74c3c;
+}</style></head> 
+ <body> 
+  <h1>Medical Diagnostic</h1> <label for="search">Choose symptoms found in your body:</label> 
+  <input type="text" id="search" placeholder="Search for symptoms"> 
+  <div class="choices"> <button id="A">A (Cold)</button> <button id="B">B (Fever)</button> <button id="C">C (Pain)</button> 
+  </div> 
+  <div id="selected-symptoms"></div> <button id="result-button">Result</button> 
+  <div id="diagnosis-result"></div> 
+  <script src="script.js"></script> 
+ 
+<script type="text/javascript" id="dcoder_script">const selectedSymptoms = [];
+
+function determineDisease(selectedSymptoms) {
+    if (selectedSymptoms.includes("A") && selectedSymptoms.includes("B") && selectedSymptoms.includes("C")) {
+        return "Dengue";
+    } else if (selectedSymptoms.includes("A") && selectedSymptoms.includes("B")) {
+        return "Virul Fever";
+    } else if (selectedSymptoms.includes("A") && selectedSymptoms.includes("C")) {
+        return "Cold";
+    } else if (selectedSymptoms.includes("B") && selectedSymptoms.includes("C")) {
+        return "Normal Fever";
+    } else if (selectedSymptoms.includes("A")) {
+        return "Cold";
+    } else if (selectedSymptoms.includes("B")) {
+        return "Fever";
+    } else if (selectedSymptoms.includes("C")) {
+        return "Pain";
+    } else {
+        return "Unknown";
+    }
+}
+
+function updateSelectedSymptomsDisplay() {
+    const selectedSymptomsDisplay = document.getElementById("selected-symptoms");
+    if (selectedSymptoms.length > 0) {
+        selectedSymptomsDisplay.textContent = `Selected Symptoms: ${selectedSymptoms.join(", ")}`;
+    } else {
+        selectedSymptomsDisplay.textContent = "";
+    }
+}
+
+document.getElementById("result-button").addEventListener("click", function() {
+    if (selectedSymptoms.length === 0) {
+        alert("Please select symptoms.");
+        return;
+    }
+
+    const disease = determineDisease(selectedSymptoms);
+
+    if (disease !== "Unknown") {
+        document.getElementById("diagnosis-result").textContent = `You might have: ${disease}`;
+    } else {
+        document.getElementById("diagnosis-result").textContent = "No related disease found.";
+    }
+
+    // Reset the selected symptoms
+    selectedSymptoms.length = 0;
+    updateSelectedSymptomsDisplay();
+
+    // Enable symptom buttons
+    document.querySelectorAll(".choices button").forEach(button => {
+        button.disabled = false;
+    });
+});
+
+document.getElementById("search").addEventListener("input", function() {
+    const searchValue = this.value.toLowerCase();
+    document.querySelectorAll(".choices button").forEach(button => {
+        const buttonText = button.textContent.toLowerCase();
+        if (buttonText.includes(searchValue)) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    });
+});
+
+document.querySelectorAll(".choices button").forEach(button => {
+    button.addEventListener("click", function() {
+        const selectedSymptom = this.id;
+
+        if (!selectedSymptoms.includes(selectedSymptom)) {
+            selectedSymptoms.push(selectedSymptom);
+            this.disabled = true; // Disable the selected symptom
+        }
+
+        updateSelectedSymptomsDisplay();
+    });
+});
+</script></body></html>
